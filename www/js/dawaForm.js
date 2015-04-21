@@ -1,7 +1,7 @@
 angular.module('dawaApp', ['ionic','ajoslin.promise-tracker'])
   .controller('dawaCtrl', function ($scope, $http, $log, promiseTracker, $timeout) {
     $scope.subjectListOptions = {
-      'swedish': 'Swedish',		
+      'swedish': 'Swed',		
       'indonesia': 'Indonesia',
       'Ethiopia': 'Ethiopia',
       'uganda': 'Uganda',
