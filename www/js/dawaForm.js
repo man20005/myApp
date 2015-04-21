@@ -4,11 +4,19 @@ angular.module('dawaApp', ['ionic','ajoslin.promise-tracker'])
       'الهندية': 'الهندية',		
       'النيبالية': 'النيبالية',
       'الفلبينية': 'الفلبينية',
-	  ' السيريلانكية': ' السيريلانكية' ,
+	  ' السيريلانكية': 'السيريلانكية' ,
       'الكينية': 'الكينية',
-      'الاثيوبية': 'الاثيوبية '
-	  
+      'الاثيوبية': 'الاثيوبية'
     };
+
+    $scope.langList = {
+      'الهندية': 'الهندية',		
+      'النيبالية': 'النيبالية',
+      'الفلبينية': 'الفلبينية',
+	  ' السيريلانكية': 'السيريلانكية' ,
+      'الكينية': 'الكينية',
+      'الاثيوبية': 'الاثيوبية'
+    };	
 
     // Inititate the promise tracker to track form submissions.
     $scope.progress = promiseTracker();
@@ -26,16 +34,15 @@ angular.module('dawaApp', ['ionic','ajoslin.promise-tracker'])
       	// Default values for the request.
      	var config = {
           'name' : $scope.name,
-          'tel' : $scope.tel,		  
-          'whatstel	' : $scope.whatstel,
-          'subjectList' : $scope.subjectList,
-          'desc' : $scope.comments
+          'tel' : $scope.tel,
+          'nat' : $scope.natList,
+          'lang' : $scope.langList
       	};
 
       var $promise = 
 	  	$http({
 			method: 'POST',
-			url: 'http://www.wasmiah.com/httpreq/insComp.php',
+			url: 'http://www.wasmiah.com/httpreq/insDawa.php',
 			data: config,
 			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		})

@@ -24,7 +24,8 @@
 
     <ion-pane>
       <ion-header-bar class="bar-stable">
-		<div onclick="window.history.go(-1); return false;" id="ios-arrow-left" title="back"></div>      
+		<div onclick="window.history.go(-1); return false;" id="ios-arrow-left" title="back"></div>
+
         <h1 class="title">العمل التطوعي</h1>
       </ion-header-bar>
       
@@ -68,15 +69,17 @@
 
 		    <div class="form-group">
                 <label dir="rtl" for="natList">الجنسية</label>
+                <div style="clear:both;"></div>
                 <span class="label label-danger" data-ng-show="submitted && helpForm.natList.$error.required">Required!</span>                
-                <select id="natList" name="natList" data-ng-model="natList" data-ng-options="id as value for (id, value) in natListOptions" class="form-control">
+                <select id="natList" name="natList" data-ng-model="natList" data-ng-options="id as value for (id, value) in natList" class="form-control">
                 <option value=""></option>
                 </select>
             </div>            
             
 		    <div class="form-group">
                 <label dir="rtl" for="langList">العمر</label>
-                <select id="langList" name="ageList" data-ng-model="ageList" data-ng-options="id as value for (id, value) in langListOptions" class="form-control">
+                <div style="clear:both;"></div>                
+                <select id="langList" name="ageList" data-ng-model="ageList" data-ng-options="id as value for (id, value) in ageList" class="form-control">
                 <option value=""></option>
                 </select>
             </div>          
@@ -88,21 +91,24 @@
             
 		    <div class="form-group">
                 <label dir="rtl" for="langList">المأهل العلمي</label>
-                <select id="langList" name="degreeList" data-ng-model="degreeList" data-ng-options="id as value for (id, value) in langListOptions" class="form-control">
+                <div style="clear:both;"></div>
+                <select id="langList" name="degreeList" data-ng-model="degreeList" data-ng-options="id as value for (id, value) in degreeList" class="form-control">
                 <option value=""></option>
                 </select>
             </div>
             
 		    <div class="form-group">
                 <label dir="rtl" for="langList">ماهراتك</label>
-                <select id="langList" name="skillsList" data-ng-model="skillsList" data-ng-options="id as value for (id, value) in langListOptions" class="form-control">
+                <div style="clear:both;"></div>
+                <select id="langList" name="skillsList" data-ng-model="skillsList" data-ng-options="id as value for (id, value) in skillsList" class="form-control">
                 <option value=""></option>
                 </select>
             </div>
             
 		    <div class="form-group">
                 <label dir="rtl" for="langList">القسم الذي تريد المساهمة فيه</label>
-                <select id="langList" name="contestList" data-ng-model="contestList" data-ng-options="id as value for (id, value) in langListOptions" class="form-control">
+                <div style="clear:both;"></div>
+                <select id="langList" name="contestList" data-ng-model="contestList" data-ng-options="id as value for (id, value) in contestList" class="form-control">
                 <option value=""></option>
                 </select>
             </div>            

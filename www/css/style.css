@@ -281,5 +281,4 @@ float:left;  padding: 8px 5px 7px;  margin: 0;  position: relative;  top:5px;  -
 #ios-arrow-left:hover:before {
     background-color: rgba(54,88,135,1);/*hovercolor*/
 }
-
-label{color: #999999 !important;}
+label{color: #999999 !important; float:right;}

@@ -1,5 +1,38 @@
 angular.module('workApp', ['ionic','ajoslin.promise-tracker'])
 	.controller('workCtrl', function ($scope, $http, $log, promiseTracker, $timeout) {
+    $scope.natList = {
+      'الهندية': 'الهندية',		
+      'النيبالية': 'النيبالية',
+      'الفلبينية': 'الفلبينية',
+	  ' السيريلانكية': 'السيريلانكية' ,
+      'الكينية': 'الكينية',
+      'الاثيوبية': 'الاثيوبية'
+    };
+	
+	$scope.ageList = {
+      '15-': '15-',
+	  '15': '35',
+	  '36': '50',
+	  '50+': '50+'
+    };
+	
+	$scope.degreeList = {
+      '10': '10',
+      '0': '0'	  
+    };	
+	
+	$scope.skillsList = {
+      '15-': '15-',
+      '0': '0'	  
+	  
+    };
+	
+	$scope.contestList = {
+      '10': '10',
+      '0': '0'	  
+    };		
+
+		
     // Inititate the promise tracker to track form submissions.
     $scope.progress = promiseTracker();
 

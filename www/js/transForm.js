@@ -1,5 +1,34 @@
 angular.module('transApp', ['ionic','ajoslin.promise-tracker'])
 	.controller('transCtrl', function ($scope, $http, $log, promiseTracker, $timeout) {
+		
+    $scope.natList = {
+      'الهندية': 'الهندية',		
+      'النيبالية': 'النيبالية',
+      'الفلبينية': 'الفلبينية',
+	  ' السيريلانكية': 'السيريلانكية' ,
+      'الكينية': 'الكينية',
+      'الاثيوبية': 'الاثيوبية'
+    };
+	
+    $scope.langList = {
+      'الهندية': 'الهندية',		
+      'النيبالية': 'النيبالية',
+      'الفلبينية': 'الفلبينية',
+	  ' السيريلانكية': 'السيريلانكية' ,
+      'الكينية': 'الكينية',
+      'الاثيوبية': 'الاثيوبية'
+    };
+	
+    $scope.typeList = {
+      'الهندية': 'الهندية',		
+      'النيبالية': 'النيبالية',
+      'الفلبينية': 'الفلبينية',
+	  ' السيريلانكية': 'السيريلانكية' ,
+      'الكينية': 'الكينية',
+      'الاثيوبية': 'الاثيوبية'
+    };
+			
+			
     // Inititate the promise tracker to track form submissions.
     $scope.progress = promiseTracker();
 
@@ -16,17 +45,17 @@ angular.module('transApp', ['ionic','ajoslin.promise-tracker'])
       	// Default values for the request.
      	var config = {
           'name' : $scope.name,
-          'tel' : $scope.tel,		  
-          'whatstel' : $scope.whatstel,
-          'desc' : $scope.comments,
-		  'db' : 'translate'
+          'tel' : $scope.tel,
+		  'nat' : $scope.natList,
+		  'lang' : $scope.langList,
+		  'type' : $scope.typeList
       	};
 
       // Ajax
       var $promise = 
 	  	$http({
 			method: 'POST',
-			url: 'http://www.wasmiah.com/httpreq/insComp.php',
+			url: 'http://www.wasmiah.com/httpreq/insWork.php',
 			data: config,
 			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		})
@@ -35,9 +64,9 @@ angular.module('transApp', ['ionic','ajoslin.promise-tracker'])
         
 		    $scope.name = null;
             $scope.tel = null;
-            $scope.email = null;
-            $scope.subjectList = null;
-            $scope.comments = null;
+            $scope.natList = null;
+			$scope.langList = null;
+			$scope.typeList = null;
             //$scope.messages = 'Your form has been sent!';
             $scope.submitted = false;
         })
