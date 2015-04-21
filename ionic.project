@@ -1,0 +1,12 @@
+{
+  "name": "hafrApp",
+  "app_id": "6cadb241",
+  "gulpStartupTasks": [
+    "sass",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*"
+  ]
+}

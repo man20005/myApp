@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html ng-app="workApp">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <!-- compiled css output -->
+    <link href="css/ionic.app.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">    
+    <link href="css/style.css" rel='stylesheet' type='text/css'>
+    
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+	<script src="js/promise-tracker.js"></script>
+   	<script src="js/workForm.js"></script>
+  </head>
+  <body ng-app="starter">
+
+    <ion-pane>
+      <ion-header-bar class="bar-stable">
+		<div onclick="window.history.go(-1); return false;" id="ios-arrow-left" title="back"></div>      
+        <h1 class="title">العمل التطوعي</h1>
+      </ion-header-bar>
+      
+<ion-content>
+      
+<img src="img/work.png" style="margin: 0 auto;">      
+<p dir="rtl">
+
+مجالات العمل في القطاع الخيري عديدة ومتنوعة خصوصا ان كانت تقام  وفق معايير تساعد على نجاحها واستمرارها<br>
+في بيئة تعزز العمل التطوعي الخيري وتساعد في الابداع فيه  لذا  يعتزم المكتب التعاوني بحفر الباطن ان يقيم مشروع العمل التطوعي بحلته الجديدة حيث يضمن للمساهمين  التخصصية وفق مهاراتهم و مؤهلاتهم و للمكتب التطوير و التنظيم و اثراء المشاريع بكل ما هو جديد .<br>
+الاستمارة التالية هي بمثابة عقد مع المكتب بحيث ان تمت الموافقة على المؤهلات و المهارات المطلوبة .<br>
+و يفيد المكتب بان المعلومات ستكون خاصة <br>
+بقسم التطوير و المشاريع بالمكتب <br>
+لذا نامل تعبئة الاستمارة بالمعلومات المطلوبة <br>
+ليتم التواصل معكم <br>
+
+</p>      
+      
+  <div class="col-md-6 col-md-offset-3"> 
+    <!-- PAGE TITLE -->
+<!--    <div class="page-header">
+
+	  <ul id="app-status-ul">Waiting for input</ul>
+    </div>
+-->    
+    <div data-ng-controller="workCtrl">
+    	<div id="messages" class="alert alert-success" data-ng-show="messages" data-ng-bind="messages"></div>
+	    <div data-ng-show="progress.active()" style="color: red; font-size: 50px;">يرسل...</div>
+		
+    	<form name="helpForm" ng-model="helpForm" novalidate role="form">
+			<div class="form-group">
+                <span class="label label-danger" data-ng-show="submitted && helpForm.name.$error.required">Required!</span>
+                <input dir="rtl" placeholder="اسم الكفيل" type="text" name="name" data-ng-model="name" class="form-control" required />
+    		</div>      
+
+            <div class="form-group">
+                <span class="label label-danger" data-ng-show="submitted && helpForm.tel.$error.required">Required!</span>
+<!--                <span class="label label-danger" data-ng-show="submitted && helpForm.tel.$error">Invalid phone numer</span> -->
+                <input dir="rtl" type="tel" placeholder="رقم الجوال" name="tel" data-ng-model="tel" class="form-control" required />
+            </div>
+
+		    <div class="form-group">
+                <label dir="rtl" for="natList">الجنسية</label>
+                <span class="label label-danger" data-ng-show="submitted && helpForm.natList.$error.required">Required!</span>                
+                <select id="natList" name="natList" data-ng-model="natList" data-ng-options="id as value for (id, value) in natListOptions" class="form-control">
+                <option value=""></option>
+                </select>
+            </div>            
+            
+		    <div class="form-group">
+                <label dir="rtl" for="langList">العمر</label>
+                <select id="langList" name="ageList" data-ng-model="ageList" data-ng-options="id as value for (id, value) in langListOptions" class="form-control">
+                <option value=""></option>
+                </select>
+            </div>          
+
+            <div class="form-group">
+<!--                <span class="label label-danger" data-ng-show="submitted && helpForm.tel.$error">Invalid phone numer</span> -->
+                <input dir="rtl" type="tel" placeholder="رقم الواتس للنساء فقط" name="whatsnr" data-ng-model="whatsnr" class="form-control" required />
+            </div> 
+            
+		    <div class="form-group">
+                <label dir="rtl" for="langList">المأهل العلمي</label>
+                <select id="langList" name="degreeList" data-ng-model="degreeList" data-ng-options="id as value for (id, value) in langListOptions" class="form-control">
+                <option value=""></option>
+                </select>
+            </div>
+            
+		    <div class="form-group">
+                <label dir="rtl" for="langList">ماهراتك</label>
+                <select id="langList" name="skillsList" data-ng-model="skillsList" data-ng-options="id as value for (id, value) in langListOptions" class="form-control">
+                <option value=""></option>
+                </select>
+            </div>
+            
+		    <div class="form-group">
+                <label dir="rtl" for="langList">القسم الذي تريد المساهمة فيه</label>
+                <select id="langList" name="contestList" data-ng-model="contestList" data-ng-options="id as value for (id, value) in langListOptions" class="form-control">
+                <option value=""></option>
+                </select>
+            </div>            
+
+		    <button data-ng-disabled="progress.active()" data-ng-click="submit(helpForm)" class="btn btn-success btn-lg btn-block btn-default">
+			<span class="glyphicon glyphicon-flash"></span>
+			Submit</button>
+    	</form>
+  </div>
+</div>      
+      </ion-content>
+    </ion-pane>
+  </body>
+</html>

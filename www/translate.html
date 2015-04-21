@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html ng-app="transApp">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <!-- compiled css output -->
+    <link href="css/ionic.app.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">    
+    <link href="css/style.css" rel='stylesheet' type='text/css'>
+    
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+	<script src="js/promise-tracker.js"></script>
+   	<script src="js/transForm.js"></script>
+  </head>
+  <body ng-app="starter">
+
+    <ion-pane>
+      <ion-header-bar class="bar-stable">
+		<div onclick="window.history.go(-1); return false;" id="ios-arrow-left" title="back"></div>      
+        <h1 class="title">مشروع الترجمة</h1>
+      </ion-header-bar>
+      
+<ion-content>
+      
+<img src="img/trans.png" style="margin: 0 auto;">      
+<p dir="rtl">
+
+يعاني الكثير من الكفلاء  من عدم القدرة على التواصل مع العمالة المنزلية في اللغة و خصوصا في ما يتعلق ببعض الاوامر الخاصة بالنظافة والتنظيم او تحويل الرواتب او في حال حصول مشاكل مع اهل الخادمة <br>
+
+يقيم المكتب التعاوني مشروع الترجمة تجاوبا مع الطلب المتزايد من الكفلاء بعد المنع الطويل من ادارة المكتب لخدمتهم و اتاحة فرص اكبر في مجال الدعوة  وفق معايير وضعتها ادارة المكتب وهي كالتالي : 	<br>
+
+- يتم طلب الخدمة وتحديد الموعد عن طريق التطبيق <br>
+
+- منح الكفلاء وقت لا يزيد على الساعة  لانشغال الدعاة <br>
+
+- تقدم الترجمة  بالمكتب او عن طريق الهاتف <br>
+
+- لا تعني الترجمة طلب استقدام خادمات وانما فقط للامور الشخصية <br>
+
+- المكتب غير مسؤول عن اي ترجمة  لم تخضع للشروط  الموضحة <br>
+
+</p>      
+      
+  <div class="col-md-6 col-md-offset-3"> 
+    <!-- PAGE TITLE -->
+<!--    <div class="page-header">
+
+	  <ul id="app-status-ul">Waiting for input</ul>
+    </div>
+-->    
+    <div data-ng-controller="transCtrl">
+    	<div id="messages" class="alert alert-success" data-ng-show="messages" data-ng-bind="messages"></div>
+	    <div data-ng-show="progress.active()" style="color: red; font-size: 50px;">يرسل...</div>
+		
+    	<form name="helpForm" ng-model="helpForm" novalidate role="form">
+			<div class="form-group">
+                <span class="label label-danger" data-ng-show="submitted && helpForm.name.$error.required">Required!</span>
+                <input dir="rtl" placeholder="اسم الكفيل" type="text" name="nameKafil" data-ng-model="nameKafil" class="form-control" required />
+    		</div>      
+
+            <div class="form-group">
+                <span class="label label-danger" data-ng-show="submitted && helpForm.tel.$error.required">Required!</span>
+<!--                <span class="label label-danger" data-ng-show="submitted && helpForm.tel.$error">Invalid phone numer</span> -->
+                <input dir="rtl" type="tel" placeholder="رقم الجوال" name="telKafil" data-ng-model="telKafil" class="form-control" required />
+            </div>
+
+		    <div class="form-group">
+                <label dir="rtl" for="natList">جنسية الخادمة</label>
+                <span class="label label-danger" data-ng-show="submitted && helpForm.natList.$error.required">Required!</span>                
+                <select id="natList" name="natList" data-ng-model="natList" data-ng-options="id as value for (id, value) in natListOptions" class="form-control">
+                <option value=""></option>
+                </select>
+            </div>            
+            
+		    <div class="form-group">
+                <label dir="rtl" for="langList">لغة الخادمة</label>
+                <select id="langList" name="langList" data-ng-model="langList" data-ng-options="id as value for (id, value) in langListOptions" class="form-control">
+                <option value=""></option>
+                </select>
+            </div>          
+
+			<div class="form-group">
+                <input dir="rtl" placeholder="اسم الخادمة" type="text" name="nameKafil" data-ng-model="nameKafil" class="form-control" required />
+    		</div> 
+            
+		    <div class="form-group">
+                <label dir="rtl" for="langList">نوع الترجمة</label>
+                <select id="langList" name="typeList" data-ng-model="typeList" data-ng-options="id as value for (id, value) in langListOptions" class="form-control">
+                <option value=""></option>
+                </select>
+            </div>              
+                        
+            <div class="form-group">
+<!--                <span class="label label-danger" data-ng-show="submitted && helpForm.tel.$error">Invalid phone numer</span> -->
+                <input dir="rtl" type="tel" placeholder="الوقت المطلوب" name="time" data-ng-model="time" class="form-control" required />
+            </div>
+
+            <div class="form-group">
+<!--                <span class="label label-danger" data-ng-show="submitted && helpForm.tel.$error">Invalid phone numer</span> -->
+                <input dir="rtl" type="tel" placeholder="رقم الحساب الذي تم تحويل المبلغ من خلاله" name="time" data-ng-model="time" class="form-control" required />
+            </div>
+            
+
+		    <button data-ng-disabled="progress.active()" data-ng-click="submit(helpForm)" class="btn btn-success btn-lg btn-block btn-default">
+			<span class="glyphicon glyphicon-flash"></span>
+			Submit</button>
+    	</form>
+  </div>
+</div>      
+      </ion-content>
+    </ion-pane>
+  </body>
+</html>
