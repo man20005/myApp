@@ -1,11 +1,13 @@
 angular.module('dawaApp', ['ionic','ajoslin.promise-tracker'])
   .controller('dawaCtrl', function ($scope, $http, $log, promiseTracker, $timeout) {
-    $scope.subjectListOptions = {
-      'swedish': 'Swed',		
-      'indonesia': 'Indonesia',
-      'Ethiopia': 'Ethiopia',
-      'uganda': 'Uganda',
-      'other': 'Other'
+    $scope.natList = {
+      'الهندية': 'الهندية',		
+      'النيبالية': 'النيبالية',
+      'الفلبينية': 'الفلبينية',
+	  ' السيريلانكية': ' السيريلانكية' ,
+      'الكينية': 'الكينية',
+      'الاثيوبية': 'الاثيوبية '
+	  
     };
 
     // Inititate the promise tracker to track form submissions.
