@@ -74,6 +74,7 @@
 
 		    <div class="form-group">
                 <label dir="rtl" for="natList">جنسية الخادمة</label>
+                <div style="clear:both"></div>
                 <span class="label label-danger" data-ng-show="submitted && helpForm.natList.$error.required">Required!</span>                
                 <select id="natList" name="natList" data-ng-model="natList" data-ng-options="id as value for (id, value) in natList" class="form-control">
                 <option value=""></option>
@@ -82,6 +83,7 @@
             
 		    <div class="form-group">
                 <label dir="rtl" for="langList">لغة الخادمة</label>
+                <div style="clear:both"></div>
                 <select id="langList" name="langList" data-ng-model="langList" data-ng-options="id as value for (id, value) in langList" class="form-control">
                 <option value=""></option>
                 </select>
@@ -93,6 +95,7 @@
             
 		    <div class="form-group">
                 <label dir="rtl" for="langList">نوع الترجمة</label>
+                <div style="clear:both"></div>
                 <select id="langList" name="typeList" data-ng-model="typeList" data-ng-options="id as value for (id, value) in typeList" class="form-control">
                 <option value=""></option>
                 </select>

@@ -33,7 +33,7 @@
 
 
 <ion-content>
-  <div class="col-md-6 col-md-offset-3"> 
+  <div class="col-md-6 col-md-offset-3" style="padding-top:20px"> 
     <!-- PAGE TITLE -->
 <!--    <div class="page-header">
 
@@ -53,6 +53,7 @@
 
 		    <div class="form-group">
                 <label for="natList">الجنسية</label>
+                <div style="clear:both"></div>
                 <span class="label label-danger" data-ng-show="submitted && helpForm.natList.$error.required">Required!</span>                
                 <select id="natList" name="natList" data-ng-model="natList" data-ng-options="id as value for (id, value) in natList" class="form-control">
                 <option value=""></option>
@@ -61,6 +62,7 @@
             
 		    <div class="form-group">
                 <label for="langList">اللغة</label>
+                <div style="clear:both"></div>
                 <select id="langList" name="langList" data-ng-model="langList" data-ng-options="id as value for (id, value) in langList" class="form-control">
                 <option value=""></option>
                 </select>

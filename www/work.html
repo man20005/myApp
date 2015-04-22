@@ -98,20 +98,17 @@
             </div>
             
 		    <div class="form-group">
-                <label dir="rtl" for="langList">ماهراتك</label>
-                <div style="clear:both;"></div>
-                <select id="langList" name="skillsList" data-ng-model="skillsList" data-ng-options="id as value for (id, value) in skillsList" class="form-control">
-                <option value=""></option>
-                </select>
-            </div>
-            
-		    <div class="form-group">
                 <label dir="rtl" for="langList">القسم الذي تريد المساهمة فيه</label>
                 <div style="clear:both;"></div>
                 <select id="langList" name="contestList" data-ng-model="contestList" data-ng-options="id as value for (id, value) in contestList" class="form-control">
                 <option value=""></option>
                 </select>
-            </div>            
+            </div>
+
+            <div class="form-group">
+<!--                <span class="label label-danger" data-ng-show="submitted && helpForm.tel.$error">Invalid phone numer</span> -->
+                <textarea rows="3" dir="rtl" placeholder="ماهراتك" name="skills" data-ng-model="skills" class="form-control" />
+            </div>                         
 
 		    <button data-ng-disabled="progress.active()" data-ng-click="submit(helpForm)" class="btn btn-success btn-lg btn-block btn-default">
 			<span class="glyphicon glyphicon-flash"></span>
